@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notification</title>
+<script>
+//var notification = new Notification("I am Desktop Notification");
+function notifyMe() {
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+  else if (Notification.permission === "granted") {
+        var options = {
+                body: "A New Order #RPDOR0089 has been created by Shubham",
+                icon: "order.jpg",
+                dir : "ltr"
+             };
+          var notification = new Notification("New Order",options);
+  }
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      if (!('permission' in Notification)) {
+        Notification.permission = permission;
+      }
+   
+      if (permission === "granted") {
+        var options = {
+              body: "Welcome to AGT",
+              icon: "order.jpg",
+              dir : "ltr"
+          };
+        var notification = new Notification("Hi there",options);
+      }
+    });
+  }
+}
+</script>
+</head>
+<body>
+<button onclick="notifyMe()">Bring Notifications</button>
+</body>
+</html>
