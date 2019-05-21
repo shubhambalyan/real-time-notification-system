@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notification Realtime</title>
+    <link rel="stylesheet" type="text/css" href="/var/www/html/notification/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #one {
+           text-align: center;
+           color: blueviolet;
+           text-decoration: underline;
+           text-decoration-color: black;
+           margin-top: 40px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+        }
+        td {
+            height: 30px;
+            padding: 7px;
+        }
+        tr:hover {
+            background-color: #F5F5DC;
+        }
+        th {
+            background: green;
+            color: white;
+        }
+        a:link { color: darkblue; }
+        a:visited { color: darkorchid; }
+        a:hover { color: darkgreen; }
+        a:active { color: black; }
+        #three {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="one">
+       <h2>Welcome to Notification System</h2><br><br>
+    </div>
+    <div id="two"></div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>   <!--previous src="socket.io/socket.io.js" NOT AVAILABLE-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    <script>
+        var socket=io.connect();
+        socket.on('notif',function(data){
+        var out= "<table border=1><tr><th>Category</th><th>Message</th><th>Datecreated</th><th>Link</th><th>Visit</th></tr>";
+        $.each(data.notif,function(index,row){
+            out+="<tr><td id='three'>" + row.category+ "</td><td>" + row.message+ "</td><td>" + row.datecreated+ "</td><td>" + row.link +
+                   "</td><td><a target='_blank' href=" + row.link + ">Click Here</a></td></tr>";
+        });
+        out+="</table>";
+        //out+="<a href='localhost:4000' target='_blank'>View All</a>";
+        $('#two').html(out);
+      });
+    </script>
+    </body>
+</html>

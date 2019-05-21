@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>NS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    </head>
+    <body>
+        <script>    
+            var socket = io.connect();      
+            socket.on('date', function(data){
+            $('#date').text(data.date);
+            });
+        </script>
+        <div style="text-align: center; color: blueviolet; text-decoration: underline; text-decoration-color: black; margin-top: 40px;">
+            <h2>Welcome to Notification System</h2><br><br>
+        </div>
+        <div id="date"></div>
+    </body>
+</html>

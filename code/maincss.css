@@ -1,0 +1,55 @@
+/* 
+    Created on : 15 Jun, 2015, 1:20:01 PM
+    Author     : shubham
+*/
+
+body {
+max-width: 500px;
+margin: 2em auto;
+padding: 0 0.5em;
+font-size: 20px;
+margin-top: 180px;
+border-style: groove;
+border-color: black;
+border-width: 10px;
+background-image: url("back4.png");
+background-attachment:fixed;
+}
+h2 {
+text-align: center;
+color: #663399;
+text-decoration: underline;
+text-transform: capitalize;
+font-style: normal;
+font-family: serif; 
+font-size: 25px;
+line-height: 40px;
+}
+label {
+display: block;
+}
+.not2 {
+color: #FF4500;
+font-size: 15px;
+}
+textarea {
+width:100%;
+}
+.two {
+text-align: center;
+}
+#one {
+padding: 0.5em;
+margin: 1em;
+}
+.not1 {
+font-size: 15px;
+color: #FF4500;
+}
+#three {
+width: 100%;
+}
+select {
+    width: 100%;
+    height: 30px;
+}
