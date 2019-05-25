@@ -21,7 +21,9 @@ notifications.
 
 ### Project Design
 <img src="./screenshots/project_design.JPG" width="70%">  
+
 The explanation of the setup is as follows:
+
 * __PHP Script__: this script will be used to create a form containing the category, message and the URL or the link for the notification. The user has to select a category and write a message. The URL box will get automatically filled up with the appropriate URL category-wise. On submitting the form, the script will create a database connection and insert the data into the table of the database.
 * __Database__: this database will contain two tables, one for notifications and one for different admin users. The schema for both the tables is given in the next section.
 * __Server Script__: this script will be written in Node.js to create a Pool Connection with the database and fetch the notifications form it according to the conditions specified in the query.
@@ -44,8 +46,9 @@ This notification system uses __Synchronous communication__ to communicate with 
 The real-time notification system project database consists of two tables. The name for each table along with the attributes name, data type and a short description of each attributes function is described in the following section.
 
 Table 1: Table of Notifications
+
 | Field Name        | Data Type           | Comments  |
-| ------------- |:-------------:| -----:|
+| --------- | --------- | ----- |
 | ID      | int(5) | auto increment, not null, primary key |
 | Message      | varchar(100)      |   not null |
 | Datecreated | Timestamp      |    not null, default current timestamp |
@@ -54,9 +57,11 @@ Table 1: Table of Notifications
 | Category | varchar(100)      |    not null |
 | Image | Blob      |    not null |
 
+
 Table 2: Table of Admin Users
+
 | Field Name        | Data Type           | Comments  |
-| ------------- |:-------------:| -----:|
+| ------------- | ------------- | ----- |
 | u-id      | int(5) | not null, unique, primary key |
 | username      | varchar(30)      |   not null, unique |
 | password | varchar(32)      |    not null |
